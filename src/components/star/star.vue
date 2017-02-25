@@ -44,7 +44,7 @@
   };
 
 </script>
-<style scoped lang="scss">
+<style lang="scss">
   @import "../../common/scss/mixin";
   #star {
     .star-item {
