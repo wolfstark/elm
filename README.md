@@ -1,6 +1,6 @@
 # vue-demo
 
-> webapp
+> 饿了么小项目
 
 ## Build Setup
 
