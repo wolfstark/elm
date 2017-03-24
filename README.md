@@ -1,6 +1,6 @@
 # vue-demo
 
-> 饿了么小项目
+> 饿了么外卖高仿
 
 ## Build Setup
 
