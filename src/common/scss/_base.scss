@@ -1,36 +1,57 @@
 body,
 html {
-  line-height: 1;
-  font-weight: 200;
-  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', Arial, sans-serif;
+    line-height: 1;
+    font-weight: 200;
+    font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', Arial, sans-serif;
+}
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
 }
 
 .clearfix::after {
-  display: block;
-  content: "";
-  clear: both;
+    display: table;
+    content: "";
+    clear: both;
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5),
 (min-device-pixel-ratio: 1.5) {
-  .border-1px::after,
-  .border-1px::before {
-    transform: scaleY(0.75);
-  }
+    .border-1px::after,
+    .border-1px::before {
+        transform: scaleY(0.75);
+    }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2.0),
 (min-device-pixel-ratio: 2.0) {
-  .border-1px::after,
-  .border-1px::before {
-    transform: scaleY(0.5);
-  }
+    .border-1px::after,
+    .border-1px::before {
+        transform: scaleY(0.5);
+    }
 }
 
 @media (-webkit-min-device-pixel-ratio: 3.0),
 (min-device-pixel-ratio: 3.0) {
-  .border-1px::after,
-  .border-1px::before {
-    transform: scaleY(0.3);
-  }
+    .border-1px::after,
+    .border-1px::before {
+        transform: scaleY(0.33);
+    }
 }
