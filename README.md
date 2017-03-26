@@ -1,6 +1,6 @@
 # vue-demo
 
-> webapp
+> 饿了么外卖高仿
 
 ## Build Setup
 
