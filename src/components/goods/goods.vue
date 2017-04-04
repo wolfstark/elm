@@ -5,9 +5,10 @@
             <ul class="item-wrapper">
                 <li v-for="(item,index) in goods"
                     :class="{current:currentIndex===index}"
-                    class="menu-item">
+                    class="menu-item"
+                    @click="selectMenu(index,$event)">
                     <span class="text border-1px">
-                                                                                                                                                                                        <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
+                                                                                                                                                                                                                                                                                    <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
                     </span>
                 </li>
             </ul>
@@ -45,6 +46,8 @@
                 </li>
             </ul>
         </div>
+        <v-shopcart :deliveryPrice="seller.deliveryPrice"
+                    :minPrice="seller.minPrice"></v-shopcart>
     </div>
 </template>
 <style lang="scss">
@@ -181,8 +184,9 @@
     }
 }
 </style>
-<script>
+<script >
 import BScroll from 'better-scroll';
+import shopcart from 'components/shopcart/shopcart';
 
 const ERR_OK = 0;
 export default {
@@ -230,8 +234,18 @@ export default {
         });
     },
     methods: {
+        selectMenu(index, $event) {
+            /* eslint no-underscore-dangle: ["error", { "allow": ["_constructed"] }]*/
+            if (!$event._constructed) {
+                return;
+            }
+            const foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
+            const el = foodList[index];
+
+            this.foodsScroll.scrollToElement(el, 300);
+        },
         initScroll() {
-            this.menuScroll = new BScroll(this.$refs.menuWrapper, {});
+            this.menuScroll = new BScroll(this.$refs.menuWrapper, { click: true });
             this.foodsScroll = new BScroll(this.$refs.foodsWrapper, { probeType: 3 });
 
             this.foodsScroll.on('scroll', (pos) => {
@@ -253,6 +267,9 @@ export default {
             return Array.prototype.slice.call(obj);
         },
 
+    },
+    components: {
+        'v-shopcart': shopcart,
     },
 };
 
